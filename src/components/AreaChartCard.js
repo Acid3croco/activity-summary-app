@@ -16,6 +16,12 @@ const AreaChartCard = ({
   yAxisLabel,
   Icon
 }) => {
+  const startDate = data[0].time.getTime()
+  data = data.map((item) => ({
+    ...item,
+    time: toHoursAndMinutes((item.time.getTime() - startDate) / 1000)
+  }))
+
   return (
     <div className="p-4 rounded-lg shadow-md bg-gray-100 text-gray-900">
       <div className="flex items-center mb-2">
@@ -24,6 +30,7 @@ const AreaChartCard = ({
       </div>
       <ResponsiveContainer width="100%" height={250}>
         <AreaChart
+          syncId="anyId"
           className={`${className}`}
           width={500}
           height={250}
@@ -40,6 +47,16 @@ const AreaChartCard = ({
       </ResponsiveContainer>
     </div>
   )
+}
+
+function toHoursAndMinutes(totalSeconds) {
+  const seconds = totalSeconds % 60
+  const minutes = Math.floor(totalSeconds / 60)
+
+  const seconds_str = seconds < 10 ? `0${seconds}` : seconds
+  const minutes_str = minutes < 10 ? `0${minutes}` : minutes
+
+  return `${minutes_str}:${seconds_str}`
 }
 
 export default AreaChartCard

@@ -25,6 +25,7 @@ const Index = () => {
   const handleFileChange = async (event) => {
     const file = event.target.files[0]
     const parsedData = await parseGPX(file)
+    console.log(parsedData)
     setFileData(parsedData)
   }
 
@@ -92,6 +93,14 @@ const Index = () => {
                 />
               </div>
               <div className="charts-section grid grid-cols-1 gap-4">
+                <AreaChartCard
+                  Icon={ForwardIcon}
+                  data={fileData.speedData}
+                  dataKey="speed"
+                  stroke="#dc6e00"
+                  fill="#dc6e00"
+                  yAxisLabel="Speed (km/h)"
+                />
                 <AreaChartCard
                   Icon={ArrowUpIcon}
                   data={fileData.elevationData}
