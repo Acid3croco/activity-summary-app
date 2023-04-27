@@ -19,6 +19,8 @@ Activity Summary App is a simple, clean, and responsive web application that all
 - Download a screenshot of the summary for sharing
 - Responsive design for use on various devices
 
+![App](public/main_app.png)
+
 ## Getting Started
 
 ### Prerequisites
