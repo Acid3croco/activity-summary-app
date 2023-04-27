@@ -2,26 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+.card {
+  @apply p-4 rounded-lg shadow-md;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.icon {
+  @apply text-2xl;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.title {
+  @apply text-lg font-semibold mt-2;
+}
+
+.value {
+  @apply text-xl font-bold mt-1;
+}
+
+.upload-area {
+  @apply bg-blue-100 text-blue-900 p-4 rounded-lg shadow-md flex justify-center items-center cursor-pointer;
+}
+
+.upload-area:hover {
+  @apply bg-blue-200;
 }
